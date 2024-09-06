@@ -100,9 +100,28 @@ class IO:
         user_cash = int(input())
         string_length = 35
         print('Чек'.center(string_length, '='))
-        print(f'{'Товар':<{string_length//2}}:{product_name:>{string_length//2}}')
-        print(f'{'Цена:':<{string_length//3}}{weight:>{string_length//3}}кг * {price:<{string_length//2}}руб/кг')
-        print(f'Итого:{weight * price:<{string_length}}')
-        print(f'Внесено:{user_cash:<{string_length}}')
-        print(f'Сдача:{user_cash - weight * price:<{string_length}}')
+        print('Товар:' + ' ' * (string_length - len(product_name) - len('Товар:')) + f'{product_name}')
+        s2 = f'{weight}кг * {price}руб/кг'
+        print('Цена:' + ' ' * (string_length - len('Цена:') - len(s2)) + s2)
+        s3 = 'Итого:'
+        s_rub = 'руб'
+        print(s3 + f'{weight * price:>{string_length - len(s3) - len(s_rub)}}руб')
+        s4 = 'Внесено:'
+        print(f'Внесено:{user_cash:>{string_length - len(s4) - len(s_rub)}}руб')
+        s5 = 'Сдача:'
+        print(f'Сдача:{user_cash - weight * price:>{string_length - len(s5) - len(s_rub)}}руб')
         print(''.center(string_length, '='))
+
+    @staticmethod
+    def T():
+        N = int(input())
+        M = int(input())
+        K1 = int(input())
+        K2 = int(input())
+
+        L2 = int(N * abs((M - K1) / (K2 - K1)))
+        L1 = int(N - L2)
+        print(L1, L2)
+
+if __name__ == '__main__':
+    IO.S()

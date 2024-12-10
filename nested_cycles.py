@@ -94,8 +94,15 @@ class NestedCycles:
                 winner_value = digits
         print(winner_name)
 
-
+    @staticmethod
+    def I():
+        num = int(input())
+        start_value = 0
+        for i in range(num, 0, -1):
+            digits = max(map(int, list(input())))
+            start_value += digits * 10 ** (i - 1)
+        print(start_value)
 
 if __name__ == '__main__':
     nested_cycles = NestedCycles()
-    nested_cycles.H()
+    nested_cycles.I()
